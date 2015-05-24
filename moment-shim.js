@@ -1,5 +1,11 @@
 (function() {
   /* globals define, moment, Ember */
+  if(typeof(moment) === "undefined") {
+    if(typeof(window) === "undefined") {
+      window = {};
+    }
+    window.moment = {};
+  }
 
   var ComparableMoment = Ember.Object.extend(Ember.Comparable, moment.fn, {
     compare: function(a, b) {
